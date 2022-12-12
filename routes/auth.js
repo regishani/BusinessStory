@@ -1,15 +1,14 @@
-const { application } = require('express')
 const express = require ('express')
+const passport = require ('passport')
 const router = express.Router()
 
-router.get('/auth', (req, res) =>{
-    res.render('login',{
-        layout: 'login',
-    })
-})
+router.get('/auth/google', 
+passport.authenticate('google', {scope:['profile']
+}))
 
-router.get('/dashboard', (req, res)=>{
-    res.render('dashboard')
+router.get('/auth/google/callback', passport.authenticate('google'),
+(req, res) => {
+    res.redirect ('/dashboard')
 })
 
 module.exports = router
