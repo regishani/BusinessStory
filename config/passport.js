@@ -11,7 +11,7 @@ passport.use( 'google',
     })
 )
 async (accessToken, refreshToken, profile, done) => {
-    console.log(profile)
+    console.log(profile, "dcksklcs")
 },
 passport.serializeUser ((user, done) => {
     done(null, user.id)
